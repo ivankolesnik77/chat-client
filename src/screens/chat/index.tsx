@@ -1,8 +1,5 @@
 import React, { useState } from "react";
-import classNames from "classNames";
-
 import { IMessage, useChat } from "../../hooks/useChat";
-
 import { BrowseFile } from "../../components/BrowseFile";
 
 const Chat: React.FC = () => {
@@ -41,15 +38,12 @@ const Chat: React.FC = () => {
     const customStyles = isOwnMessage
       ? "self-end bg-green-500"
       : "self-start bg-blue-500";
-    const userName = `Anonymous ${message?.userId.slice(0, 5) || ""}: `;
+    const userName = `Anonymous ${message?.userId.slice(0, 5) || ""}:`;
 
     return (
       <div
         key={`message-${message._id}`}
-        className={classNames(
-          "my-2 p-2 rounded-md text-white flex-col items-start",
-          customStyles
-        )}
+        className={`my-2 p-2 rounded-md text-white flex-col items-start ${customStyles}`}
       >
         <div className="flex gap-2">
           <strong>{userName}</strong>
